@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="rock_paper_Game.css" />
+    <script src="rock_paper_Game.js" defer></script>
+  </head>
+  <body class="night-mode">
+    <div class="container">
+      <h1>Rock Paper Scissors Game</h1>
+      <h2 id="make">Make your selection:</h2>
+
+      <div class="selection-container">
+        <div class="selection" id="rock">
+          <img src="Images/rock_dallee.png" alt="rock" />
+        </div>
+        <div class="selection" id="paper">
+          <img src="Images/paper_dallee.png" alt="paper" />
+        </div>
+        <div class="selection" id="scissors">
+          <img src="Images/scissors_dallee.png" alt="scissors" />
+        </div>
+      </div>
+
+      <div class="choice-container" id="choice-container">
+        <h2 id="choices">Choices done</h2>
+        <p id="user-choice">
+          Player:
+          <span id="span_player_choice" style="font-weight: bold"></span>
+        </p>
+        <p id="computer-choice">
+          Computer:
+          <span id="span_computer_choice" style="font-weight: bold"></span>
+        </p>
+      </div>
+
+      <div class="score-container" id="score-container">
+        <h2 id="result">Result!</h2>
+        <p id="pl_score" style="font-weight: bold">
+          Player Score: <span id="span_player_score" class="neon-green">0</span>
+        </p>
+        <p id="cmp_score" style="font-weight: bold">
+          Computer Score:
+          <span id="span_computer_score" class="neon-red">0</span>
+        </p>
+      </div>
+
+      <button id="reset" class="myButtons">Reset</button>
+    </div>
+
+    <!-- New Theme Toggle Switch -->
+    <label class="switch">
+      <div class="neon-bg"></div>
+      <div class="neon-bg2"></div>
+      <!-- Second neon background -->
+      <span class="sun">
+        <img src="Images/sun3.png" alt="Sun" id="sun" />
+      </span>
+      <span class="moon">
+        <img src="Images/moon.png" alt="Moon" id="moon" />
+      </span>
+      <input type="checkbox" class="input" id="toggleSwitch" />
+      <span class="slider"></span>
+    </label>
+  </body>
+</html>

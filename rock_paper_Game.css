@@ -1,0 +1,342 @@
+/* Body background with gradient */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #222831, #393e46); /* Stylish gradient background */
+    font-family: 'Poppins', sans-serif;
+    color: #eeeeee;
+}
+
+/* Day mode styles */
+body.day-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+body.day-mode .container {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Night mode styles */
+body.night-mode {
+    background: linear-gradient(135deg, #222831, #393e46);
+    color: #eeeeee;
+}
+
+body.night-mode .container {
+    background-color: #1c1c1c;
+    color: #eeeeee;
+}
+
+/* Container styling */
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Title styling */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease;
+}
+
+h1:hover {
+    color: #33c3e7; /* Change title color on hover */
+}
+
+/* Selection container with gap */
+.selection-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+/* Image selection neon effect */
+.selection img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, margin 0.4s ease;
+    cursor: pointer;
+    border: 5px solid transparent;
+}
+
+/* Neon effect for Rock (Pink) */
+#rock img:hover {
+    transform: scale(1.1);
+    margin: 20px; /* Adjust this for spacing */
+    border: 5px solid rgba(255, 20, 147, 0.6);
+    box-shadow: 0 0 25px rgba(255, 20, 147, 0.6), 0 0 50px rgba(255, 20, 147, 0.4);
+}
+
+#rock img:active {
+    transform: scale(0.95);
+    border: 5px solid rgba(255, 20, 147, 1);
+    box-shadow: 0 0 35px rgba(255, 20, 147, 1);
+}
+
+/* Neon effect for Paper (Blue) */
+#paper img:hover {
+    transform: scale(1.1);
+    margin: 20px; /* Adjust this for spacing */
+    border: 5px solid rgba(0, 191, 255, 0.6);
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.6), 0 0 50px rgba(0, 191, 255, 0.4);
+}
+
+#paper img:active {
+    transform: scale(0.95);
+    border: 5px solid rgba(0, 191, 255, 1);
+    box-shadow: 0 0 35px rgba(0, 191, 255, 1);
+}
+
+/* Neon effect for Scissors (Yellow) */
+#scissors img:hover {
+    transform: scale(1.1);
+    margin: 20px; /* Adjust this for spacing */
+    border: 5px solid rgba(255, 255, 0, 0.6);
+    box-shadow: 0 0 25px rgba(255, 255, 0, 0.6), 0 0 50px rgba(255, 255, 0, 0.4);
+}
+
+#scissors img:active {
+    transform: scale(0.95);
+    border: 5px solid rgba(255, 255, 0, 1);
+    box-shadow: 0 0 35px rgba(255, 255, 0, 1);
+}
+
+/* Score container and choices styling */
+.choice-container, .score-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h3, h2 {
+    color: #222831;
+}
+
+p {
+    color: #393e46;
+    font-size: 1.2em;
+}
+
+/* Neon text styles with background for readability */
+.neon-green {
+    color: #39FF14;
+    text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14, 0 0 20px #39FF14;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.neon-red {
+    color: #e3022f;
+    text-shadow: 0 0 5px #b90428, 0 0 10px #b90428, 0 0 20px #b90428;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.neon-yellow {
+    color: #FFFF00;
+    text-shadow: 0 0 5px #FFFF00, 0 0 10px #FFFF00, 0 0 20px #FFFF00;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Night mode background for containers */
+body.night-mode .choice-container, body.night-mode .score-container {
+    background-color: rgba(45, 45, 45, 0.9); /* Dark, semi-transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Light border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Subtle shadow */
+    border-radius: 15px; /* Smooth rounded corners */
+    color: #fff; /* White text for night mode */
+}
+
+/* Glow effect on the score in night mode */
+body.night-mode .neon-green, 
+body.night-mode .neon-red, 
+body.night-mode .neon-yellow {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 
+                 0 0 10px rgba(255, 255, 255, 0.4); /* Soft glow */
+}
+
+/* Night mode styles for h1 */
+body.night-mode h1, body.night-mode .choice-container h2, body.night-mode .choice-container p, body.night-mode .score-container h3, body.night-mode .score-container p {
+    color: #ffffff; /* Change h1 color to white in night mode */
+}
+
+/* Hover effect remains unchanged */
+body.night-mode h1:hover {
+    color: #33c3e7; /* Keep this hover effect for both modes */
+}
+
+#make {
+    margin-bottom: 20px;
+    color: rgba(255, 20, 147, 1);
+}
+
+button {
+    background-color: rgba(255, 20, 147, 0.6);
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: rgba(255, 20, 147, 1);
+    transform: scale(1.05);
+}
+
+
+/* Toggle switch styling (Day/Night) */
+/* Position toggle switch to the top-right corner */
+/* Switch container */
+/* Adjust toggle switch size */
+
+.switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 100px; /* Smaller width */
+    height: 50px; /* Smaller height */
+    background-color: #2d2d2d;
+    border-radius: 30px; /* Match radius for smaller size */
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Hide input */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+/* Neon background elements */
+.neon-bg, .neon-bg2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px; /* Match radius for smaller size */
+    z-index: 1;
+    transition: all 0.6s ease;
+    background-color: transparent;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.neon-bg {
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.8), 0 0 30px rgba(255, 20, 147, 0.6), 0 0 45px rgba(255, 20, 147, 0.4);
+    border: 2px solid rgba(255, 20, 147, 0.8); /* Pink neon border */
+}
+
+.neon-bg2 {
+    opacity: 0; /* Hidden by default */
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.8), 0 0 30px rgba(0, 191, 255, 0.6), 0 0 45px rgba(0, 191, 255, 0.4);
+    border: 2px solid rgba(0, 191, 255, 0.8); /* Blue neon border */
+}
+
+/* Adjust slider size */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 5px; /* Adjusted for smaller switch */
+    left: 5px;
+    width: 40px; /* Smaller slider */
+    height: 40px; /* Smaller slider */
+    background-color: #352f2f63;
+    border-radius: 50%;
+    transition: all 0.6s ease;
+    z-index: 3;
+}
+
+/* Adjust images size */
+.sun img, .moon img {
+    position: absolute;
+    width: 50px; /* Smaller images */
+    height: 50px; /* Smaller images */
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.6s ease;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    z-index: 4; /* Ensure both moon and sun are above the neon borders */
+}
+
+.sun img {
+    top: 0px;
+    left: 50px; /* Adjusted for smaller switch */
+}
+
+.moon img {
+    top: 0px;
+    left: -100px;
+    opacity: 0;
+}
+
+/* Adjusted toggle movement */
+.input:checked + .slider {
+    left: 50px; /* Adjusted for smaller switch */
+}
+
+.input:checked ~ .moon img {
+    left: 0;
+    opacity: 1;
+}
+
+.input:checked ~ .sun img {
+    left: 100px;
+    opacity: 0;
+}
+
+/* Toggle for neon background elements */
+body.night-mode .neon-bg2 {
+    opacity: 0; /* Hide blue neon in night mode */
+    transform: translateX(-100px); /* Translate to the left */
+}
+
+body.day-mode .neon-bg {
+    opacity: 0; /* Hide pink neon in day mode */
+    transform: translateX(100px); /* Translate to the right */
+}
+
+body.day-mode .neon-bg2 {
+    opacity: 1; /* Show blue neon in day mode */
+    transform: translateX(0px); /* Translate to the right */
+}
