@@ -24,7 +24,7 @@ You can check out the live demo of the game here: [**GitHub Pages Link**](https:
 
 | Day Mode                                                 | Night Mode                                                   |
 | -------------------------------------------------------- | ------------------------------------------------------------ |
-| ![Day Mode Screenshot](./images/day_mode_screenshot.png) | ![Night Mode Screenshot](./images/night_mode_screenshot.png) |
+| ![Day Mode Screenshot](./Images/day_mode_screenshot.png) | ![Night Mode Screenshot](./Images/night_mode_screenshot.png) |
 
 ## 📋 How to Play
 
