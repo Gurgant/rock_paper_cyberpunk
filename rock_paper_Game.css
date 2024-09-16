@@ -1,260 +1,327 @@
-/* Body background with gradient */
+/* ================================================
+   CSS Variables (Custom Properties)
+================================================ */
+:root {
+    /* --- Colors --- */
+    --color-bg-dark: #222831;
+    --color-bg-dark-secondary: #393e46;
+    --color-bg-light: #f0f0f0;
+    --color-text-light: #eeeeee;
+    --color-text-dark: #333;
+    --color-pink: rgba(255, 20, 147, 1);
+    --color-pink-light: rgba(255, 20, 147, 0.6);
+    --color-blue: rgba(0, 191, 255, 1);
+    --color-blue-light: rgba(0, 191, 255, 0.6);
+    --color-yellow: rgba(255, 255, 0, 1);
+    --color-yellow-light: rgba(255, 255, 0, 0.6);  
+    --color-red: rgba(227, 2, 47, 1);
+    --color-text-shadow-red: rgba(185, 4, 40, 1);
+    --color-green: rgba(57, 255, 20, 1);
+    --color-bg-neon: rgba(45, 45, 45, 0.9);
+    --color-container-light: #ffffff;
+    --color-container-dark: #1c1c1c;
+    --color-bg-choice-light: #f5f5f5;
+
+    /* --- Shadow and Transition --- */
+    --box-shadow-main: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --box-shadow-hover-pink: 0 0 25px var(--color-pink-light), 0 0 50px var(--color-pink);
+    --box-shadow-hover-blue: 0 0 25px var(--color-blue-light), 0 0 50px var(--color-blue);
+    --box-shadow-hover-yellow: 0 0 25px var(--color-yellow-light), 0 0 50px var(--color-yellow);
+    --transition-main: 0.3s ease;
+    --transition-fast: 0.2s ease;
+    --transition-slow: 0.6s ease;
+
+    /* --- Fonts --- */
+    --font-family: 'Poppins', sans-serif;
+    --font-size-title: 2.5rem; /* Updated to rem for responsive scaling */
+    --font-size-paragraph: 1.2rem;
+    --font-weight-bold: bold;
+
+    /* --- Spacing and Size --- */
+    --container-padding: 2.5rem; /* Replaced px with rem */
+    --container-max-width: 100%; /* Max width 100%, controlled via percentage */
+    --container-width: 90vw; /* Width relative to the viewport width */
+    --container-max-width-lg: 60rem; /* Max width for larger screens in rem */
+    
+    /* --- Minimum Width and Height --- */
+    --min-width-container: 320px; /* Set a minimum width for container */
+    --min-height-container: 500px; /* Optional: Set a minimum height for container */
+    
+    /* --- Border Radius --- */
+    --border-radius-main: 1rem; /* Use rem for consistent scaling */
+    --border-radius-circle: 50%;
+}
+
+/* ================================================
+   Body and General Styles
+================================================ */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #222831, #393e46); /* Stylish gradient background */
-    font-family: 'Poppins', sans-serif;
-    color: #eeeeee;
+    background: linear-gradient(135deg, var(--color-bg-dark), var(--color-bg-dark-secondary));
+    font-family: var(--font-family);
+    color: var(--color-text-light);
+    min-width: var(--min-width-container); /* Prevent page from shrinking below this width */
 }
 
-/* Day mode styles */
 body.day-mode {
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+}
+
+body.night-mode {
+    background: linear-gradient(135deg, var(--color-bg-dark), var(--color-bg-dark-secondary));
+    color: var(--color-text-light);
+}
+
+/* ================================================
+   Container Styles
+================================================ */
+/* Container with relative position */
+.container {
+    position: relative; /* Set the container as a reference point */
+    text-align: center;
+    background-color: var(--color-container-light);
+    padding: var(--container-padding);
+    border-radius: var(--border-radius-main);
+    box-shadow: var(--box-shadow-main);
+    width: var(--container-width); /* Using vw for responsive width */
+    max-width: var(--container-max-width-lg); /* Limit max width for large screens */
+    min-width: var(--min-width-container); /* Set a minimum width using variable */
+    min-height: var(--min-height-container); /* Set a minimum height using variable */
+    margin: 5rem auto; /* Using rem for margin */
+    transition: transform var(--transition-main);
 }
 
 body.day-mode .container {
-    background-color: #ffffff;
-    color: #333;
-}
-
-/* Night mode styles */
-body.night-mode {
-    background: linear-gradient(135deg, #222831, #393e46);
-    color: #eeeeee;
+    background-color: var(--color-container-light);
+    color: var(--color-text-dark);
 }
 
 body.night-mode .container {
-    background-color: #1c1c1c;
-    color: #eeeeee;
+    background-color: var(--color-container-dark);
+    color: var(--color-text-light);
 }
 
-/* Container styling */
-.container {
-    text-align: center;
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 600px;
-    margin: 20px;
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Title styling */
+/* ================================================
+   Title Styles
+================================================ */
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #333;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    transition: color 0.3s ease;
+    font-size: var(--font-size-title);
+    margin-bottom: 1.25rem; /* Converted to rem */
+    color: var(--color-text-dark);
+    font-weight: var(--font-weight-bold);
+    text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); /* Converted to rem */
+    transition: color var(--transition-main);
 }
 
 h1:hover {
-    color: #33c3e7; /* Change title color on hover */
+    color: var(--color-blue);
 }
 
-/* Selection container with gap */
-.selection-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    gap: 20px;
-}
-
-/* Image selection neon effect */
-.selection img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, margin 0.4s ease;
-    cursor: pointer;
-    border: 5px solid transparent;
-}
-
-/* Neon effect for Rock (Pink) */
-#rock img:hover {
-    transform: scale(1.1);
-    margin: 20px; /* Adjust this for spacing */
-    border: 5px solid rgba(255, 20, 147, 0.6);
-    box-shadow: 0 0 25px rgba(255, 20, 147, 0.6), 0 0 50px rgba(255, 20, 147, 0.4);
-}
-
-#rock img:active {
-    transform: scale(0.95);
-    border: 5px solid rgba(255, 20, 147, 1);
-    box-shadow: 0 0 35px rgba(255, 20, 147, 1);
-}
-
-/* Neon effect for Paper (Blue) */
-#paper img:hover {
-    transform: scale(1.1);
-    margin: 20px; /* Adjust this for spacing */
-    border: 5px solid rgba(0, 191, 255, 0.6);
-    box-shadow: 0 0 25px rgba(0, 191, 255, 0.6), 0 0 50px rgba(0, 191, 255, 0.4);
-}
-
-#paper img:active {
-    transform: scale(0.95);
-    border: 5px solid rgba(0, 191, 255, 1);
-    box-shadow: 0 0 35px rgba(0, 191, 255, 1);
-}
-
-/* Neon effect for Scissors (Yellow) */
-#scissors img:hover {
-    transform: scale(1.1);
-    margin: 20px; /* Adjust this for spacing */
-    border: 5px solid rgba(255, 255, 0, 0.6);
-    box-shadow: 0 0 25px rgba(255, 255, 0, 0.6), 0 0 50px rgba(255, 255, 0, 0.4);
-}
-
-#scissors img:active {
-    transform: scale(0.95);
-    border: 5px solid rgba(255, 255, 0, 1);
-    box-shadow: 0 0 35px rgba(255, 255, 0, 1);
-}
-
-/* Score container and choices styling */
-.choice-container, .score-container {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-h3, h2 {
-    color: #222831;
-}
-
-p {
-    color: #393e46;
-    font-size: 1.2em;
-}
-
-/* Neon text styles with background for readability */
-.neon-green {
-    color: #39FF14;
-    text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14, 0 0 20px #39FF14;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    padding: 5px 10px;
-    border-radius: 10px;
-    display: inline-block;
-}
-
-.neon-red {
-    color: #e3022f;
-    text-shadow: 0 0 5px #b90428, 0 0 10px #b90428, 0 0 20px #b90428;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    padding: 5px 10px;
-    border-radius: 10px;
-    display: inline-block;
-}
-
-.neon-yellow {
-    color: #FFFF00;
-    text-shadow: 0 0 5px #FFFF00, 0 0 10px #FFFF00, 0 0 20px #FFFF00;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    padding: 5px 10px;
-    border-radius: 10px;
-    display: inline-block;
-}
-
-/* Night mode background for containers */
-body.night-mode .choice-container, body.night-mode .score-container {
-    background-color: rgba(45, 45, 45, 0.9); /* Dark, semi-transparent background */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Light border */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Subtle shadow */
-    border-radius: 15px; /* Smooth rounded corners */
-    color: #fff; /* White text for night mode */
-}
-
-/* Glow effect on the score in night mode */
-body.night-mode .neon-green, 
-body.night-mode .neon-red, 
-body.night-mode .neon-yellow {
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 
-                 0 0 10px rgba(255, 255, 255, 0.4); /* Soft glow */
-}
-
-/* Night mode styles for h1 */
-body.night-mode h1, body.night-mode .choice-container h2, body.night-mode .choice-container p, body.night-mode .score-container h3, body.night-mode .score-container p {
-    color: #ffffff; /* Change h1 color to white in night mode */
-}
-
-/* Hover effect remains unchanged */
 body.night-mode h1:hover {
-    color: #33c3e7; /* Keep this hover effect for both modes */
+    color: var(--color-blue);
+}
+
+body.night-mode h1,
+body.night-mode .choice-container h2,
+body.night-mode .choice-container p,
+body.night-mode .score-container h3,
+body.night-mode .score-container p {
+    color: var(--color-text-light);
 }
 
 #make {
     margin-bottom: 20px;
-    color: rgba(255, 20, 147, 1);
+    color: var(--color-pink);
 }
 
-button {
-    background-color: rgba(255, 20, 147, 0.6);
-    color: #fff;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 6px;
+/* ================================================
+   Neon Image Hover Effects (Rock, Paper, Scissors)
+================================================ */
+.selection-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem; /* Converted to rem */
+    gap: 1.25rem; /* Converted to rem */
+}
+
+.selection img {
+    border-radius: var(--border-radius-circle);
+    width: 9.375rem; /* Converted to rem (150px = 9.375rem) */
+    height: 9.375rem;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    transition: transform var(--transition-main), box-shadow var(--transition-main), border var(--transition-main), margin 0.4s ease;
     cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 15px;
+    border: 0.3125rem solid transparent; /* Converted to rem (5px = 0.3125rem) */
+}
+
+#rock img:hover,
+#paper img:hover,
+#scissors img:hover {
+    transform: scale(1.1);
+    margin: 1.25rem; /* Converted to rem */
+}
+
+#rock img:hover {
+    border: 0.3125rem solid var(--color-pink-light);
+    box-shadow: var(--box-shadow-hover-pink);
+}
+
+#rock img:active {
+    transform: scale(0.95);
+    border: 0.3125rem solid var(--color-pink);
+    box-shadow: var(--box-shadow-hover-pink);
+}
+
+#paper img:hover {
+    border: 0.3125rem solid var(--color-blue-light);
+    box-shadow: var(--box-shadow-hover-blue);
+}
+
+#paper img:active {
+    transform: scale(0.95);
+    border: 0.3125rem solid var(--color-blue);
+    box-shadow: var(--box-shadow-hover-blue);
+}
+
+#scissors img:hover {
+    border: 0.3125rem solid var(--color-yellow-light);
+    box-shadow: var(--box-shadow-hover-yellow);
+}
+
+#scissors img:active {
+    transform: scale(0.95);
+    border: 0.3125rem solid var(--color-yellow);
+    box-shadow: var(--box-shadow-hover-yellow);
+}
+
+/* ================================================
+   Choice and Score Containers
+================================================ */
+.choice-container,
+.score-container{
+    margin-top: 2rem; /* Converted to rem */
+    padding: 1.25rem; /* Converted to rem */
+    background-color: var(--color-bg-choice-light);
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1); /* Converted to rem */
+}
+
+body.night-mode .choice-container,
+body.night-mode .score-container{
+    background-color: var(--color-bg-neon);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.1); /* Converted to rem */
+    box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.6); /* Converted to rem */
+}
+
+h2, h3 {
+    color: var(--color-bg-dark);
+}
+
+p {
+    color: var(--color-bg-dark-secondary);
+    font-size: var(--font-size-paragraph);
+}
+
+/* ================================================
+   Neon Text Styles
+================================================ */
+.neon-green,
+.neon-red,
+.neon-yellow,
+#span_player_choice,
+#span_computer_choice {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.3125rem 0.625rem; /* Converted to rem */
+    border-radius: var(--border-radius-main);
+    display: inline-block;
+}
+
+.neon-green {
+    color: var(--color-green);
+    text-shadow: 0 0 0.3125rem var(--color-green), 0 0 0.625rem var(--color-green), 0 0 1.25rem var(--color-green); /* Converted to rem */
+}
+
+.neon-red {
+    color: var(--color-red);
+    text-shadow: 0 0 0.3125rem var(--color-text-shadow-red), 0 0 0.625rem var(--color-text-shadow-red), 0 0 1.25rem var(--color-text-shadow-red); /* Converted to rem */
+}
+
+.neon-yellow {
+    color: var(--color-yellow);
+    text-shadow: 0 0 0.3125rem var(--color-yellow), 0 0 0.625rem var(--color-yellow), 0 0 1.25rem var(--color-yellow); /* Converted to rem */
+}
+
+body.night-mode .neon-green,
+body.night-mode .neon-red,
+body.night-mode .neon-yellow,
+body.night-mode #span_player_choice,
+body.night-mode #span_computer_choice {
+    text-shadow: 0 0 0.3125rem rgba(255, 255, 255, 0.2), 0 0 0.625rem rgba(255, 255, 255, 0.4); /* Converted to rem */
+}
+
+/* ================================================
+   Button Styles
+================================================ */
+button {
+    background-color: var(--color-pink-light);
+    color: #fff;
+    padding: 0.75rem 1.5625rem; /* Converted to rem (12px, 25px) */
+    border: none;
+    border-radius: 0.375rem; /* Converted to rem */
+    cursor: pointer;
+    font-size: 1rem; /* Already in rem */
+    font-weight: var(--font-weight-bold);
+    transition: background-color var(--transition-main), transform var(--transition-fast);
+    margin-top: 0.9375rem; /* Converted to rem (15px) */
 }
 
 button:hover {
-    background-color: rgba(255, 20, 147, 1);
+    background-color: var(--color-pink);
     transform: scale(1.05);
 }
 
-
-/* Toggle switch styling (Day/Night) */
-/* Position toggle switch to the top-right corner */
-/* Switch container */
-/* Adjust toggle switch size */
-
+/* ================================================
+   Toggle Switch Styles (Day/Night)
+================================================ */
+/* Toggle switch positioned relative to the container */
 .switch {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+    position: absolute; /* Relative to the container */
+    top: 1rem; /* Keeps the switch at the top of the container */
+    right: 2rem; /* Keeps it to the right within the container */
     display: inline-block;
-    width: 100px; /* Smaller width */
-    height: 50px; /* Smaller height */
+    width: 6.25rem; /* 100px */
+    height: 3.125rem; /* 50px */
     background-color: #2d2d2d;
-    border-radius: 30px; /* Match radius for smaller size */
+    border-radius: 1.875rem; /* 30px */
     overflow: hidden;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
-/* Hide input */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
 
 /* Neon background elements */
-.neon-bg, .neon-bg2 {
+.neon-bg,
+.neon-bg2 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 30px; /* Match radius for smaller size */
+    border-radius: 1.875rem; /* Converted to rem (30px) */
     z-index: 1;
-    transition: all 0.6s ease;
+    transition: all var(--transition-slow);
     background-color: transparent;
     overflow: hidden;
     padding: 0;
@@ -263,56 +330,54 @@ button:hover {
 }
 
 .neon-bg {
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.8), 0 0 30px rgba(255, 20, 147, 0.6), 0 0 45px rgba(255, 20, 147, 0.4);
-    border: 2px solid rgba(255, 20, 147, 0.8); /* Pink neon border */
+    box-shadow: 0 0 0.9375rem var(--color-pink-light), 0 0 1.875rem var(--color-pink-light), 0 0 2.8125rem var(--color-pink); /* Converted to rem */
+    border: 0.125rem solid var(--color-pink-light); /* Converted to rem */
 }
 
 .neon-bg2 {
-    opacity: 0; /* Hidden by default */
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.8), 0 0 30px rgba(0, 191, 255, 0.6), 0 0 45px rgba(0, 191, 255, 0.4);
-    border: 2px solid rgba(0, 191, 255, 0.8); /* Blue neon border */
+    opacity: 0;
+    box-shadow: 0 0 0.9375rem var(--color-blue-light), 0 0 1.875rem var(--color-blue-light), 0 0 2.8125rem var(--color-blue); /* Converted to rem */
+    border: 0.125rem solid var(--color-blue-light); /* Converted to rem */
 }
 
-/* Adjust slider size */
 .slider {
     position: absolute;
     cursor: pointer;
-    top: 5px; /* Adjusted for smaller switch */
-    left: 5px;
-    width: 40px; /* Smaller slider */
-    height: 40px; /* Smaller slider */
+    top: 0.3125rem; /* Converted to rem (5px) */
+    left: 0.3125rem;
+    width: 2.5rem; /* Converted to rem (40px) */
+    height: 2.5rem;
     background-color: #352f2f63;
-    border-radius: 50%;
-    transition: all 0.6s ease;
+    border-radius: var(--border-radius-circle);
+    transition: all var(--transition-slow);
     z-index: 3;
 }
 
-/* Adjust images size */
-.sun img, .moon img {
+.sun img,
+.moon img {
     position: absolute;
-    width: 50px; /* Smaller images */
-    height: 50px; /* Smaller images */
+    width: 3.125rem; /* Converted to rem (50px) */
+    height: 3.125rem;
     object-fit: cover;
-    border-radius: 50%;
-    transition: all 0.6s ease;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-    z-index: 4; /* Ensure both moon and sun are above the neon borders */
+    border-radius: var(--border-radius-circle);
+    transition: all var(--transition-slow);
+    box-shadow: 0 0 0.9375rem rgba(255, 255, 255, 0.6); /* Converted to rem */
+    z-index: 4;
 }
 
 .sun img {
     top: 0px;
-    left: 50px; /* Adjusted for smaller switch */
+    left: 3.125rem; /* Converted to rem (50px) */
 }
 
 .moon img {
     top: 0px;
-    left: -100px;
+    left: -6.25rem; /* Converted to rem (-100px) */
     opacity: 0;
 }
 
-/* Adjusted toggle movement */
 .input:checked + .slider {
-    left: 50px; /* Adjusted for smaller switch */
+    left: 3.125rem; /* Converted to rem (50px) */
 }
 
 .input:checked ~ .moon img {
@@ -321,22 +386,126 @@ button:hover {
 }
 
 .input:checked ~ .sun img {
-    left: 100px;
+    left: 6.25rem; /* Converted to rem (100px) */
     opacity: 0;
 }
 
-/* Toggle for neon background elements */
+/* Neon toggle movement */
 body.night-mode .neon-bg2 {
-    opacity: 0; /* Hide blue neon in night mode */
-    transform: translateX(-100px); /* Translate to the left */
+    opacity: 0;
+    transform: translateX(-6.25rem); /* Converted to rem (-100px) */
 }
 
 body.day-mode .neon-bg {
-    opacity: 0; /* Hide pink neon in day mode */
-    transform: translateX(100px); /* Translate to the right */
+    opacity: 0;
+    transform: translateX(6.25rem); /* Converted to rem (100px) */
 }
 
 body.day-mode .neon-bg2 {
-    opacity: 1; /* Show blue neon in day mode */
-    transform: translateX(0px); /* Translate to the right */
+    opacity: 1;
+    transform: translateX(0);
 }
+
+/* ================================================
+   Media Queries for Responsive Design
+================================================ */
+
+/* For very small screens (e.g., mobile devices) */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem; /* Reduce padding for small screens */
+    width: 95vw; /* Make the container fit more snugly */
+    min-width: var(--min-width-container); /* Maintain minimum width */
+    min-height: var(--min-height-container); /* Maintain minimum height */
+  }
+
+  h1 {
+    font-size: 2rem; /* Reduce font size for smaller screens */
+  }
+
+  .selection img {
+    width: 6rem; /* Reduce image size for smaller screens */
+    height: 6rem;
+  }
+
+  .switch {
+    width: 5rem;
+    height: 2.5rem;
+  }
+
+  .slider {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .sun img, .moon img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* For large screens (e.g., desktops) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 50rem; /* Make the container smaller on large screens */
+  }
+
+  h1 {
+    font-size: 3rem; /* Increase font size for large screens */
+  }
+
+  .selection img {
+    width: 10rem; /* Increase image size for larger screens */
+    height: 10rem;
+  }
+}
+
+
+/* For screens between 600px and 1200px */
+@media (min-width: 600px) and (max-width: 1200px) {
+    .container {
+      padding: 2rem; /* Increase padding for medium-sized screens */
+      max-width: 40rem; /* Make the container slightly smaller */
+    }
+  
+    h1 {
+      font-size: 2.5rem; /* Slightly increase font size for medium screens */
+    }
+  
+    .selection img {
+      width: 7.5rem; /* Increase image size for medium screens */
+      height: 7.5rem;
+    }
+  
+    .switch {
+      width: 5.5rem; /* Adjust the switch size for medium screens */
+      height: 2.75rem;
+    }
+  
+    .slider {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+  
+    .sun img, .moon img {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+  }
+    
+
+
+
+/* Class colors for JS */
+.txt-blue {
+    color: var(--color-blue);
+}
+
+.txt-yellow {
+    color: var(--color-yellow);
+}
+
+.txt-pink {
+    color: var(--color-pink);
+}
+

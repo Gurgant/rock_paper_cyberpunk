@@ -1,5 +1,7 @@
 class MyRockPaperGame {
   choices = ["Rock", "Paper", "Scissors"];
+  // colors = ["neon-red", "neon-green", "neon-yellow"];
+  colors = ["txt-pink", "txt-blue", "txt-yellow"];
   score = 0;
   compScore = 0;
   played = 0;
@@ -85,20 +87,23 @@ class MyRockPaperGame {
   }
 
   displayResult() {
-    this.updateChoiceText(
-      this.userChoiceContainer,
-      this.choices[this.userChoice]
-    );
-    this.updateChoiceText(
-      this.computerChoiceContainer,
-      this.choices[this.computerChoice]
-    );
+    const usrChoiceTxt = this.userChoiceContainer;
+    const pcChoiceTxt = this.computerChoiceContainer;
+    usrChoiceTxt.textContent = this.choices[this.userChoice];
+    pcChoiceTxt.textContent = this.choices[this.computerChoice];
+    this.newTxtClr(usrChoiceTxt, this.colors[this.userChoice]);
+    this.newTxtClr(pcChoiceTxt, this.colors[this.computerChoice]);
     this.playerScore.textContent = this.score;
     this.computerScore.textContent = this.compScore;
   }
 
-  updateChoiceText(element, text) {
-    element.textContent = text;
+  // newTxt(element, text) {
+  //   element.textContent = text;
+  // }
+
+  newTxtClr(element, color) {
+    element.classList.remove(...this.colors);
+    element.classList.add(color);
   }
 
   resetGame() {

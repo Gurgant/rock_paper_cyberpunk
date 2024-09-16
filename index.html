@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
     <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="rock_paper_Game.css" />
     <script src="rock_paper_Game.js" defer></script>
@@ -14,13 +18,37 @@
 
       <div class="selection-container">
         <div class="selection" id="rock">
-          <img src="Images/rock_dallee.png" alt="rock" />
+          <img
+            src="Images/resize_images/rock.png"
+            srcset="
+              Images/resize_images/rock_small.png   512w,
+              Images/resize_images/rock_medium.png  758w,
+              Images/resize_images/rock.png        1024w
+            "
+            alt="rock"
+          />
         </div>
         <div class="selection" id="paper">
-          <img src="Images/paper_dallee.png" alt="paper" />
+          <img
+            src="Images/resize_images/paper.png"
+            srcset="
+              Images/resize_images/paper_small.png   512w,
+              Images/resize_images/paper_medium.png  758w,
+              Images/resize_images/paper.png        1024w
+            "
+            alt="paper"
+          />
         </div>
         <div class="selection" id="scissors">
-          <img src="Images/scissors_dallee.png" alt="scissors" />
+          <img
+            src="Images/resize_images/scissors.png"
+            srcset="
+              Images/resize_images/scissors_small.png   512w,
+              Images/resize_images/scissors_medium.png  758w,
+              Images/resize_images/scissors.png        1024w
+            "
+            alt="scissors"
+          />
         </div>
       </div>
 
@@ -50,8 +78,8 @@
       <button id="reset" class="myButtons">Reset</button>
     </div>
 
-    <!-- New Theme Toggle Switch -->
-    <label class="switch">
+    <!-- New Theme Toggle Switch with Accessibility -->
+    <label class="switch" aria-label="Toggle between day and night mode">
       <div class="neon-bg"></div>
       <div class="neon-bg2"></div>
       <!-- Second neon background -->
@@ -61,7 +89,12 @@
       <span class="moon">
         <img src="Images/moon.png" alt="Moon" id="moon" />
       </span>
-      <input type="checkbox" class="input" id="toggleSwitch" />
+      <input
+        type="checkbox"
+        class="input"
+        id="toggleSwitch"
+        aria-label="Day/Night toggle"
+      />
       <span class="slider"></span>
     </label>
   </body>
